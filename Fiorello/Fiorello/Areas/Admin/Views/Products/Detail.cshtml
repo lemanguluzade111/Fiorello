@@ -1,0 +1,8 @@
+﻿@model Product
+<img src="~/img/@Model.Image" style="width:fit-content;height:400px;object-fit:cover" />
+<br>
+<br>
+<h4>@Model.Name</h4>
+<div>@Model.Price</div>
+<div>@Model.CategoryId</div>
+<a asp-action="Index" class="btn btn-secondary mt-3">Go Back</a>

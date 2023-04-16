@@ -305,3 +305,9 @@ C:\Users\lqulu\OneDrive\Masaüstü\BACKEND-111\Fiorello\Fiorello\Fiorello\obj\De
 C:\Users\lqulu\OneDrive\Masaüstü\BACKEND-111\Fiorello\Fiorello\Fiorello\obj\Debug\net5.0\Razor\Areas\Admin\Views\Products\Index.cshtml.g.cs
 C:\Users\lqulu\OneDrive\Masaüstü\BACKEND-111\Fiorello\Fiorello\Fiorello\obj\Debug\net5.0\Razor\Areas\Admin\Views\Products\Create.cshtml.g.cs
 C:\Users\lqulu\OneDrive\Masaüstü\BACKEND-111\Fiorello\Fiorello\Fiorello\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\lqulu\OneDrive\Masaüstü\BACKEND-111\Fiorello\Fiorello\Fiorello\obj\Debug\net5.0\Razor\Areas\Admin\Views\Categories\Index.cshtml.g.cs
+C:\Users\lqulu\OneDrive\Masaüstü\BACKEND-111\Fiorello\Fiorello\Fiorello\obj\Debug\net5.0\Razor\Areas\Admin\Views\Products\Detail.cshtml.g.cs
+C:\Users\lqulu\OneDrive\Masaüstü\BACKEND-111\Fiorello\Fiorello\Fiorello\obj\Debug\net5.0\Razor\Areas\Admin\Views\Products\Update.cshtml.g.cs
+C:\Users\lqulu\OneDrive\Masaüstü\BACKEND-111\Fiorello\Fiorello\Fiorello\obj\Debug\net5.0\Razor\Areas\Admin\Views\Categories\Create.cshtml.g.cs
+C:\Users\lqulu\OneDrive\Masaüstü\BACKEND-111\Fiorello\Fiorello\Fiorello\obj\Debug\net5.0\Razor\Areas\Admin\Views\Categories\Update.cshtml.g.cs
+C:\Users\lqulu\OneDrive\Masaüstü\BACKEND-111\Fiorello\Fiorello\Fiorello\obj\Debug\net5.0\Razor\Areas\Admin\Views\Categories\Detail.cshtml.g.cs

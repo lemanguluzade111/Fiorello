@@ -72,5 +72,104 @@ namespace Fiorello.Areas.Admin.Controllers
 
             return RedirectToAction("Index");
         }
+
+        //////////TASK - Update,Delete & Detail/////////////////////
+        public async Task<IActionResult> Activity(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            Product dbProduct = await _db.Products.FirstOrDefaultAsync(x => x.Id == id);
+            if (dbProduct == null)
+            {
+                return BadRequest();
+            }
+            if (dbProduct.IsDeactive)
+            {
+                dbProduct.IsDeactive = false;
+            }
+            else
+            {
+                dbProduct.IsDeactive = true;
+            }
+            await _db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+
+        public async Task<IActionResult> Update(int? id)
+        {
+            ViewBag.Categories = await _db.Categories.ToListAsync();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            Product dbProduct = await _db.Products.FirstOrDefaultAsync(x => x.Id == id);
+            if (dbProduct == null)
+            {
+                return BadRequest();
+            }
+            return View(dbProduct);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public async Task<IActionResult> Update(int? id, Product product)
+        {
+            ViewBag.Categories = await _db.Categories.ToListAsync();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            Product dbProduct = await _db.Products.FirstOrDefaultAsync(x => x.Id == id);
+            if (dbProduct == null)
+            {
+                return BadRequest();
+            }
+            #region SAVE IMAGE
+            if (product.Photo == null)
+            {
+                ModelState.AddModelError("Photo", "Image cannot be null");
+                return View();
+            }
+            if (!product.Photo.IsImage())
+            {
+                ModelState.AddModelError("Photo", "Please select image type");
+                return View();
+            }
+            if (product.Photo.IsOlder1Mb())
+            {
+                ModelState.AddModelError("Photo", "MAX 1 Mb");
+                return View();
+            }
+            string folder = Path.Combine(_env.WebRootPath, "img");
+            product.Image = await product.Photo.SaveFileAsync(folder);
+            #endregion
+
+            dbProduct.Name = product.Name;
+            dbProduct.Image = product.Image;
+            dbProduct.Price = product.Price;
+            //dbProduct.CategoryId = categoryId;
+            await _db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Detail(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            Product dbProduct = await _db.Products.FirstOrDefaultAsync(x => x.Id == id);
+            if (dbProduct == null)
+            {
+                return BadRequest();
+            }
+
+            return View(dbProduct);
+        }
+
+
     }
-}
+    }
