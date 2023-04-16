@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gFoL54NxSgQv9Ao5NS253N+WLeVLCGRU7TT9165nHW2yzwn/IbGTWmvN9V47AvW6/dTrEP7TKq4qFaWot13ySA==",
+  "dgSpecHash": "VuJCqsE70vvDirvF7/Hqi9TV6qR9Y/RysXmTsaPeSZQO7JK2//jypkOnAClx5xWix0zQqgeLzhUMcqMkxmt0Cw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lqulu\\OneDrive\\Masaüstü\\Fiorello\\Fiorello\\Fiorello.csproj",
+  "projectFilePath": "C:\\Users\\lqulu\\OneDrive\\Masaüstü\\BACKEND-111\\Fiorello\\Fiorello\\Fiorello\\Fiorello.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lqulu\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\lqulu\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

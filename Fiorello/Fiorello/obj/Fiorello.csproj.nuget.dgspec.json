@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lqulu\\OneDrive\\Masaüstü\\Fiorello\\Fiorello\\Fiorello.csproj": {}
+    "C:\\Users\\lqulu\\OneDrive\\Masaüstü\\BACKEND-111\\Fiorello\\Fiorello\\Fiorello\\Fiorello.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lqulu\\OneDrive\\Masaüstü\\Fiorello\\Fiorello\\Fiorello.csproj": {
+    "C:\\Users\\lqulu\\OneDrive\\Masaüstü\\BACKEND-111\\Fiorello\\Fiorello\\Fiorello\\Fiorello.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lqulu\\OneDrive\\Masaüstü\\Fiorello\\Fiorello\\Fiorello.csproj",
+        "projectUniqueName": "C:\\Users\\lqulu\\OneDrive\\Masaüstü\\BACKEND-111\\Fiorello\\Fiorello\\Fiorello\\Fiorello.csproj",
         "projectName": "Fiorello",
-        "projectPath": "C:\\Users\\lqulu\\OneDrive\\Masaüstü\\Fiorello\\Fiorello\\Fiorello.csproj",
+        "projectPath": "C:\\Users\\lqulu\\OneDrive\\Masaüstü\\BACKEND-111\\Fiorello\\Fiorello\\Fiorello\\Fiorello.csproj",
         "packagesPath": "C:\\Users\\lqulu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lqulu\\OneDrive\\Masaüstü\\Fiorello\\Fiorello\\obj\\",
+        "outputPath": "C:\\Users\\lqulu\\OneDrive\\Masaüstü\\BACKEND-111\\Fiorello\\Fiorello\\Fiorello\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lqulu\\AppData\\Roaming\\NuGet\\NuGet.Config",
