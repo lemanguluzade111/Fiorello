@@ -100,60 +100,71 @@ namespace Fiorello.Areas.Admin.Controllers
 
         public async Task<IActionResult> Update(int? id)
         {
-            ViewBag.Categories = await _db.Categories.ToListAsync();
+           
             if (id == null)
             {
                 return NotFound();
             }
-            Product dbProduct = await _db.Products.FirstOrDefaultAsync(x => x.Id == id);
+            Product dbProduct = await _db.Products.Include(x => x.ProductDetail).FirstOrDefaultAsync(x => x.Id == id);
             if (dbProduct == null)
             {
                 return BadRequest();
             }
+            ViewBag.Categories = await _db.Categories.ToListAsync();
             return View(dbProduct);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public async Task<IActionResult> Update(int? id, Product product)
+        public async Task<IActionResult> Update(int? id, Product product,int categoryId)
         {
-            ViewBag.Categories = await _db.Categories.ToListAsync();
+            
             if (id == null)
             {
                 return NotFound();
             }
-            Product dbProduct = await _db.Products.FirstOrDefaultAsync(x => x.Id == id);
+            Product dbProduct = await _db.Products.Include(x=>x.ProductDetail).FirstOrDefaultAsync(x => x.Id == id);
             if (dbProduct == null)
             {
                 return BadRequest();
             }
+            ViewBag.Categories = await _db.Categories.ToListAsync();
+            #region Exist Item
+            bool isExist = await _db.Products.AnyAsync(x => x.Name == product.Name && x.Id!=id);
+            if (isExist)
+            {
+                ModelState.AddModelError("Name", "This product is already exist !");
+                return View();
+            }
+            #endregion
+
             #region SAVE IMAGE
-            if (product.Photo == null)
+            if (product.Photo != null)
             {
-                ModelState.AddModelError("Photo", "Image cannot be null");
-                return View();
+                if (!product.Photo.IsImage())
+                {
+                    ModelState.AddModelError("Photo", "Please select image type");
+                    return View();
+                }
+                if (product.Photo.IsOlder1Mb())
+                {
+                    ModelState.AddModelError("Photo", "MAX 1 Mb");
+                    return View();
+                }
+                string folder = Path.Combine(_env.WebRootPath, "img");
+                dbProduct.Image = await product.Photo.SaveFileAsync(folder);
             }
-            if (!product.Photo.IsImage())
-            {
-                ModelState.AddModelError("Photo", "Please select image type");
-                return View();
-            }
-            if (product.Photo.IsOlder1Mb())
-            {
-                ModelState.AddModelError("Photo", "MAX 1 Mb");
-                return View();
-            }
-            string folder = Path.Combine(_env.WebRootPath, "img");
-            product.Image = await product.Photo.SaveFileAsync(folder);
+
             #endregion
 
             dbProduct.Name = product.Name;
-            dbProduct.Image = product.Image;
             dbProduct.Price = product.Price;
-            //dbProduct.CategoryId = categoryId;
+            dbProduct.CategoryId = categoryId;
+            dbProduct.ProductDetail.Description = product.ProductDetail.Description;
             await _db.SaveChangesAsync();
+
             return RedirectToAction("Index");
-        }
+    }
 
         public async Task<IActionResult> Detail(int? id)
         {
@@ -166,6 +177,7 @@ namespace Fiorello.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
+            
 
             return View(dbProduct);
         }

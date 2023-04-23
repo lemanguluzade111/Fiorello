@@ -18,6 +18,7 @@ namespace Fiorello.Models
         
         [NotMapped]
         public IFormFile Photo { get; set; }
+        public ProductDetail ProductDetail { get; set; }
 
     }
 }

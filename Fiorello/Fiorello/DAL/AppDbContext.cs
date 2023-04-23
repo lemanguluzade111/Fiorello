@@ -13,6 +13,7 @@ namespace Fiorello.DAL
         public DbSet<Product> Products { get; set; }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<SliderInfo> SliderInfo { get; set; }
+        public DbSet<ProductDetail> ProductDetails { get; set; }
 
     }
 }

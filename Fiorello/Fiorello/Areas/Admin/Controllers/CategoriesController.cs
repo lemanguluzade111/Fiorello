@@ -37,10 +37,10 @@ namespace Fiorello.Areas.Admin.Controllers
         {
            
             #region Exist Item
-            bool isExist = await _db.Products.AnyAsync(x => x.Name == category.Name);
+            bool isExist = await _db.Categories.AnyAsync(x => x.Name == category.Name);
             if (isExist)
             {
-                ModelState.AddModelError("Name", "This product is already exist !");
+                ModelState.AddModelError("Name", "This category is already exist !");
                 return View();
             }
             #endregion
@@ -104,6 +104,14 @@ namespace Fiorello.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
+            #region Exist Item
+            bool isExist = await _db.Categories.AnyAsync(x => x.Name == category.Name && x.Id != id);
+            if (isExist)
+            {
+                ModelState.AddModelError("Name", "This category is already exist !");
+                return View();
+            }
+            #endregion
             dbCategory.Name = category.Name;
          
             
