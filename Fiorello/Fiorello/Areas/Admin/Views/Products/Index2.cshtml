@@ -11,7 +11,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive text-nowrap">
-            <table class="table table-bordered">
+            <table class="table table-bordered" id="test">
                 <thead>
                     <tr>
                         <th>Image</th>
@@ -29,7 +29,7 @@
                             <td>
                                 <img src="~/img/@item.Image" style="width:80px; height:80px; object-fit:cover" />
                             </td>
-                            
+
                             <td>
                                 <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>@item.Name</strong>
                             </td>
@@ -67,27 +67,21 @@
             </table>
         </div>
 
-     
-        <div class="d-flex justify-content-center mt-4">
-            <nav aria-label="...">
-                <ul class="pagination">
-                   @* <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                    </li>*@
-                    
-                    @for (int i = 1; i <= ViewBag.PageCount; i++)
-                    {
-                        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@i">@i</a></li>
-                    }
-                     
-                    @*<li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>*@
-                </ul>
-            </nav>
-        </div>
+
 
 
     </div>
 </div>
+@section Css{
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
+}
+
+@section Scripts{
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        let table = new DataTable('#test');
+     </script>
+}
 <!--/ Bordered Table -->
